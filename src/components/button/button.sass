@@ -1,0 +1,112 @@
+@use "/assets/styles/tokens/_colors.sass" as colors
+@use "/assets/styles/tokens/_spacing" as spacing
+
+.button
+  padding: spacing.$spacing-2xs
+  border-style: solid 
+  border-width: spacing.$spacing-2xs /4
+  border-radius: spacing.$spacing-2xs
+  display: flex
+  gap: spacing.$spacing-2xs
+  align-items: center
+  justify-content: center
+   
+  &--primary
+    @extend .button
+    background-color: map-get(colors.$royal-blue, 500)
+    color: colors.$white
+    border-color: map-get(colors.$royal-blue, 500)
+    &:hover
+      background-color: map-get(colors.$royal-blue, 600)
+      border-color: map-get(colors.$royal-blue, 600)
+      color: colors.$white
+    &:focus
+      background-color: map-get(colors.$royal-blue, 700)
+      border-color: map-get(colors.$royal-blue, 700)
+      color: colors.$white
+    &:active
+      background-color: map-get(colors.$royal-blue, 800)
+      border-color: map-get(colors.$royal-blue, 700)
+      color: colors.$white
+  &--secondary
+    @extend .button
+    background-color: colors.$white
+    border-color: map-get(colors.$royal-blue, 200)
+    color: map-get(colors.$royal-blue, 500)
+    &:hover
+      background-color: map-get(colors.$royal-blue, 400)
+      border-color: map-get(colors.$royal-blue, 400)
+      color: colors.$white
+    &:focus
+      background-color: map-get(colors.$royal-blue, 500)
+      border-color: map-get(colors.$royal-blue, 500)
+      color: colors.$white
+    &:active
+      background-color: map-get(colors.$royal-blue, 500)
+      border-color: map-get(colors.$royal-blue, 500)
+      color: colors.$white
+  &--ghost
+    @extend .button
+    background-color: transparent
+    border-color: transparent
+    color: map-get(colors.$royal-blue, 500)
+    &:hover
+      background-color: map-get(colors.$royal-blue, 100)
+      border-color: map-get(colors.$royal-blue, 100)
+      color: map-get(colors.$royal-blue, 500)
+    &:focus
+      background-color: map-get(colors.$royal-blue, 100)
+      border-color: map-get(colors.$royal-blue, 100)
+      color: map-get(colors.$royal-blue, 500)
+    &:active
+      background-color: map-get(colors.$royal-blue, 200)
+      border-color: map-get(colors.$royal-blue, 100)
+      color: map-get(colors.$royal-blue, 500)
+    &:loading
+      background-color: transparent
+      border-color: transparent
+      color: map-get(colors.$royal-blue, 500)
+  &--danger
+    @extend .button
+    background-color: map-get(colors.$error, 500)
+    border-color: map-get(colors.$error, 500)
+    color: colors.$white
+    &:hover
+      background-color: map-get(colors.$error, 700)
+      border-color: map-get(colors.$error, 700)
+      color: colors.$white
+    &:focus
+       background-color: map-get(colors.$error, 700)
+       border-color: map-get(colors.$error, 700)
+       color: colors.$white
+    &:active
+      background-color: map-get(colors.$error, 700)
+      border-color: map-get(colors.$error, 600)
+      color: colors.$white
+
+.isLoading  
+  width: spacing.$spacing-m *6 
+.isDisabled
+   background-color: map-get(colors.$greyscale, 100)
+   color: map-get(colors.$greyscale, 800)
+   border-color: map-get(colors.$greyscale, 100)
+   &:hover
+      background-color: map-get(colors.$greyscale, 100)
+      color: map-get(colors.$greyscale, 800)
+      border-color: map-get(colors.$greyscale, 100)
+   &:focus
+      background-color: map-get(colors.$greyscale, 100)
+      color: map-get(colors.$greyscale, 800)
+      border-color: map-get(colors.$greyscale, 100)
+   &:active
+      background-color: map-get(colors.$greyscale, 100)
+      color: map-get(colors.$greyscale, 800)
+      border-color: map-get(colors.$greyscale, 100) 
+      
+.size
+  &--m
+    height: spacing.$spacing-xs *4.25       
+  &--s     
+    height: spacing.$spacing-xs *3.25        
+  &--xs        
+    height: spacing.$spacing-xs *2.75        
