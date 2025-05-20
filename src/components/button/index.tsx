@@ -3,7 +3,7 @@ import './button.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-function Button({ buttonStyle = "primary", isDisabled, label, isLoading, size, icon }: ButtomProps) {
+function Button({ buttonStyle = "primary", isDisabled, label, isLoading, size = "s", icon }: ButtomProps) {
 
     const btnClass = `button--${buttonStyle}`
     const sizeClass = `size--${size}`

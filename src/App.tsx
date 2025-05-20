@@ -7,7 +7,7 @@ function App() {
     <div>
       <Button 
       label='cascas'
-      size='s'
+      size='m'
       buttonStyle='danger' 
       icon={{ start: faCoffee, end: faArrowTurnDown }} 
       isLoading ={false}
