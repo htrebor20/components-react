@@ -1,0 +1,22 @@
+@use "/assets/styles/tokens/_colors.sass" as colors
+@use "/assets/styles/tokens/_spacing" as spacing
+   
+.card    
+    border-width: spacing.$spacing-2xs /4
+    border-style: solid 
+    padding: spacing.$spacing-2xl /3.1
+    color: map-get(colors.$royal-blue, 500)
+    display: inline-block
+    border-radius: spacing.$spacing-2xs
+    
+    &--default
+       @extend .card
+       border-color: map-get(colors.$greyscale, 200)
+    &--hover
+       @extend .card
+       border-color: map-get(colors.$royal-blue, 500)
+       background-color:  map-get(colors.$royal-blue, 10)
+    &--disabled
+       @extend .card
+       border-color: map-get(colors.$greyscale, 200)
+       background-color:  map-get(colors.$greyscale, 25)
