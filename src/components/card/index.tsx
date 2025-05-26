@@ -1,10 +1,12 @@
 import type { CardProps } from './types';
 import './card.sass'
 
-function Card({ children, state }: CardProps) {
+function Card({ children, state ="default" }: CardProps) {
     const CardState = `card--${state}`
-    return <div className={CardState}>
-        {children}
-    </div>
+    return (
+        <div data-testid="card-wraper" className={CardState}>
+            {children}
+        </div>
+    )
 }
 export default Card

@@ -1,27 +1,24 @@
 import './App.sass'
 import Button from './components/button'
 import Card from './components/card'
-import { faCoffee, faArrowTurnDown, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faArrowTurnDown, faSpinner, faFolderPlus } from '@fortawesome/free-solid-svg-icons'
+import Chip from './components/chip'
+
 
 function App() {
-  return (
-    <div>
+  const fnCual = () => { console.log("asdasdad") }
 
-      <Card
-        state="disabled"
-      >
-        {
-          <Button
-            label='cascas'
-            size='m'
-            buttonStyle='danger'
-            icon={{ start: faCoffee, end: faArrowTurnDown }}
-            isLoading={false}
-            isDisabled={true}
-          />
-        }
-      </Card>
-    </div>
+  return (
+    <Chip
+      chipStyle='purple'
+      size='m'
+      shapes='rounded'
+      label='ship label'
+      icon={faFolderPlus}
+      button={
+        { onClick: fnCual }
+      }
+    />
   )
 }
 

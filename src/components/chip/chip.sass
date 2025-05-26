@@ -1,0 +1,45 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.chip
+    border-style: solid
+    border-width: spacing.$spacing-2xs /4
+    display: flex
+    width: fit-content
+    align-items: center
+    gap: spacing.$spacing-2xs
+    &--primary
+        @extend .chip
+        color: map-get(colors.$greyscale, 200)
+        border-color: map-get(colors.$greyscale, 200)
+    &--secondary
+        @extend .chip
+        color: map-get(colors.$greyscale, 500)
+        border-color: map-get(colors.$greyscale, 500)
+    &--orange
+        @extend .chip
+        color: map-get(colors.$warning, 500)
+        background-color: map-get(colors.$warning, 50)
+        border-color: map-get(colors.$warning, 500) 
+    &--purple
+        @extend .chip
+        color: map-get(colors.$purple-cosmos, 100)
+        background-color: map-get(colors.$purple-cosmos, 25)
+        border-color: map-get(colors.$purple-cosmos, 100)               
+.shapes
+    &--rounded
+        border-radius: spacing.$spacing-xl
+    &--squared
+        border-radius: spacing.$spacing-2xs
+.size
+    &--s
+        height: spacing.$spacing-l       
+        padding-left: spacing.$spacing-xs
+        padding-right: spacing.$spacing-xs
+        font-size: spacing.$spacing-xs
+    &--m     
+        height: spacing.$spacing-l   
+        padding-left: spacing.$spacing-xs
+        padding-right: spacing.$spacing-xs      
+        padding-top: spacing.$spacing-2xs /2  
+        font-size: spacing.$spacing-s

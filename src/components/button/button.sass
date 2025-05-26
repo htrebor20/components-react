@@ -1,5 +1,5 @@
-@use "/assets/styles/tokens/_colors.sass" as colors
-@use "/assets/styles/tokens/_spacing" as spacing
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
 
 .button
   padding: spacing.$spacing-2xs
@@ -62,10 +62,6 @@
       background-color: map-get(colors.$royal-blue, 200)
       border-color: map-get(colors.$royal-blue, 100)
       color: map-get(colors.$royal-blue, 500)
-    &:loading
-      background-color: transparent
-      border-color: transparent
-      color: map-get(colors.$royal-blue, 500)
   &--danger
     @extend .button
     background-color: map-get(colors.$error, 500)
@@ -83,9 +79,13 @@
       background-color: map-get(colors.$error, 700)
       border-color: map-get(colors.$error, 600)
       color: colors.$white
-
-.isLoading  
-  width: spacing.$spacing-m *6 
+  &--special
+    @extend .button
+    background-color: transparent
+    color: map-get(colors.$greyscale, 700)
+    border: none
+  .isLoading  
+    width: spacing.$spacing-m *6 
 .isDisabled
    background-color: map-get(colors.$greyscale, 100)
    color: map-get(colors.$greyscale, 800)
@@ -102,11 +102,4 @@
       background-color: map-get(colors.$greyscale, 100)
       color: map-get(colors.$greyscale, 800)
       border-color: map-get(colors.$greyscale, 100) 
-      
-.size
-  &--m
-    height: spacing.$spacing-xs *4.25       
-  &--s     
-    height: spacing.$spacing-xs *3.25        
-  &--xs        
-    height: spacing.$spacing-xs *2.75        
+    
