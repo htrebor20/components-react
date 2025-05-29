@@ -1,0 +1,26 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.table
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+.row
+    display: flex
+    justify-content: space-around
+.item
+    display: flex
+    justify-content: left
+    width: 100%
+    height: 100%
+    padding: 8px
+    font-size: 10px
+.display
+    width: 100%
+    height: 100%
+.linea-divisoria
+    border-bottom: 1px solid map-get(colors.$greyscale, 200)
+.bold
+    font-weight: bold
