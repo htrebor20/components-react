@@ -1,0 +1,45 @@
+@use "../../../../assets/styles/tokens/_colors.sass" as colors
+@use "../../../../assets/styles/tokens/_spacing" as spacing
+
+.left--section
+    display: flex
+    flex-direction: column
+    height: 100%
+    width: 30%
+    font-size: spacing.$spacing-xs
+    gap: spacing.$spacing-l /2
+.header--grapper
+    display: flex
+    justify-content: space-between
+.title--grapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-2xs
+.wrapper--tables
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-m 
+.table
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    gap: 5px
+    padding: 5px
+.coarse-separator
+    background-color:  map-get(colors.$greyscale, 500)
+    height: 4px  
+    width: 100%     
+.table--mini
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-m/2 
+.table--below
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-m/2
+.table--section
+    display: flex
+    justify-content: space-between
+.dividing-line
+    border-bottom: 1px solid map-get(colors.$greyscale, 200)         

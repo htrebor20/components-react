@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 type Item = {
     id: string
     label: string
@@ -5,6 +6,7 @@ type Item = {
 
 export type TableProps = {
     dataHead: Item[];
-    content: Record<string, string>[];
+    content: Record<string,( string | ReactNode)>[];
 }
 
+     

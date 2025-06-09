@@ -1,0 +1,78 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.pages
+    display: flex
+    width: 100%
+    height: 100%
+    flex-direction: column
+    gap: 10px
+    font-size: 8px
+    padding: 8px
+.top--section
+    display: flex
+    width: 100%
+    flex-direction: column
+    gap: 5px
+.title--wrapper--top
+    display: flex
+    flex-direction: column
+    gap:10px
+.title--wrapper
+    display: flex
+    align-items: center
+    gap: 10px
+    font-size: 6px
+
+.middle--section
+    display: flex
+    height: 100% 
+    width: 100%
+    gap: 20px
+
+    .left--section
+        display: flex
+        flex-direction: column
+        height: 100% 
+        width: 30%
+        gap: 20px
+        .wrapper--tables
+            display: flex
+            flex-direction: column
+            height: 100% 
+            width: 100%
+            gap: 10px    
+    .right--section
+        display: flex
+        height: 100% 
+        width: 70%
+       
+.dividing-line
+    border-bottom: 1px solid map-get(colors.$greyscale, 200)
+.coarse-separator
+    background-color:  map-get(colors.$greyscale, 500)
+    height: 4px     
+.display--column
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 5px
+    padding: 5px
+.display--between
+    display: flex
+    justify-content: space-between
+.display-row
+    display: flex
+    gap: 10px
+    align-items: center
+.inline-content
+  display: flex
+  align-items: center
+  gap: 40px
+.bold
+    font-weight: bold  
+.align-button
+    display: flex
+    align-items: end
+    padding: 5px
+

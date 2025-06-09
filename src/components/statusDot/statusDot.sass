@@ -1,0 +1,21 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.statusDot__container
+     display: flex
+     align-items: center
+     gap: spacing.$spacing-xs
+     padding: spacing.$spacing-xs
+.statusDot
+     width: spacing.$spacing-xs
+     height: spacing.$spacing-xs
+     border-radius: 50%
+     display: inline-block
+     &--successes
+         background-color: map-get(colors.$success, 500)
+     &--disabled
+         background-color: map-get(colors.$greyscale, 500)
+     &--error
+         background-color: map-get(colors.$error, 500)
+     &--warning
+         background-color: map-get(colors.$warning, 500)

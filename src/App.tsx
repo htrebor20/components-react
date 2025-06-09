@@ -5,30 +5,14 @@ import { faCoffee, faArrowTurnDown, faSpinner, faFolderPlus } from '@fortawesome
 import Chip from './components/chip'
 import Table from './components/table'
 import { TableProps } from './components/table/types'
+import StatusDot from './components/statusDot'
+import Home1 from './pages/home'
 
 
 function App() {
-  const fnCual = () => { console.log("asdasdad") }
-
-const tableData: TableProps = {
-  dataHead: [
-    { id: "status", label: "Estado" },
-    { id: "name", label: "Nombre" },
-    { id: "created", label: "Creado" },
-  ],
-  content: [
-    { status: "Borrador", name: "asdd", created: "12 days ago" },
-    { status: "Borrador", name: "prueba modal 4", created: "21 days ago" },
-    { status: "Borrador", name: "modelo conciliacion avanzada", created: "26 days ago" },
-    { status: "Borrador", name: "prueb_alternativa1", created: "1 month ago" }
-  ]
-};
-
   return (
-
-    <Table dataHead={tableData.dataHead} content={tableData.content} />
+    <Home1/>
   )
 }
-
 export default App
 
