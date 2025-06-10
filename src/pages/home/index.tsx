@@ -5,7 +5,6 @@ function Home1 () {
 return(
     <>
     <Home/>
-    <LeftSection/>
     </>
 )
 

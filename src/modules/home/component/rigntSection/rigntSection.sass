@@ -1,0 +1,63 @@
+@use "../../../../assets/styles/tokens/_colors.sass" as colors
+@use "../../../../assets/styles/tokens/_spacing" as spacing
+.layout
+    display: flex
+    height: 100%
+    width: 100% 
+    box-sizing: border-box
+    font-size: 8px
+    gap: 10px 
+.right--section
+    display: flex
+    flex-direction: column
+    gap: 10px
+.header-wrapper
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+.header-container
+    display: flex
+    flex-direction: column
+    gap: 10px
+.card-model-wrapper
+    display: flex
+    flex-direction: column
+    gap: 10px
+.card-section
+    display: flex
+    gap: 10px
+.card-1
+    display: flex
+    min-width: 280px
+.content-card-1
+    display: flex
+    flex-direction: column
+    gap: 5px
+    width: 50%
+.car-status
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 50%
+.card-mini
+    display: flex
+    width: 40%
+.content-card-mini
+    display: flex
+    flex-direction: column
+    gap: 5px
+    flex: 1
+.inline-content
+    display: flex
+    align-items: center
+    gap: 40px
+.bold
+    font-weight: bold
+.dividing-line
+    border-bottom: 1px solid map-get(colors.$greyscale, 200)
+.card
+    border-width: spacing.$spacing-2xs / 4
+    border-style: solid
+    padding: spacing.$spacing-2xl / 3.1
+    display: block
+    border-radius: spacing.$spacing-2xs
