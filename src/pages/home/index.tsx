@@ -3,9 +3,7 @@ import LeftSection from "../../modules/home/component/leftSection"
 
 function Home1 () {
 return(
-    <>
     <Home/>
-    </>
 )
 
 }
