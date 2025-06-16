@@ -1,0 +1,41 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.expansionPanel
+  width: 100%               
+  color: map-get(colors.$greyscale, 500)
+ 
+  &-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: spacing.$spacing-xs  
+    cursor: pointer
+    font-size: spacing.$spacing-xs
+    gap: spacing.$spacing-2xs /2
+    &:hover
+      background-color: map-get(colors.$greyscale, 100)
+      border-radius: spacing.$spacing-2xs 
+    svg
+      transition: transform 0.3s ease
+
+    .rotated
+      transform: rotate(90deg)
+
+  &-header-left
+    display: flex
+    align-items: center
+    gap: spacing.$spacing-2xs 
+
+  &-children
+    padding: spacing.$spacing-2xs spacing.$spacing-l
+    animation: expandDown 0.3s ease
+    font-size: spacing.$spacing-xs
+
+@keyframes expandDown
+  0%
+    opacity: 0
+    transform: translateY(-5px)
+  100%
+    opacity: 1
+    transform: translateY(0)

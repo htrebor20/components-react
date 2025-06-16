@@ -7,12 +7,47 @@ import Table from './components/table'
 import { TableProps } from './components/table/types'
 import StatusDot from './components/statusDot'
 import Home1 from './pages/home'
+import ExpansionPanel from './components/expansionPanel'
 
 
 function App() {
   return (
-    <Home1/>
-  )
-}
-export default App
+    <div style={{ width: '80%', padding: '1rem' }}>
+      <ExpansionPanel
+        label="Automatizar"
+        icon={faCoffee}
+        isExpanded={false}
+      >
+        <ExpansionPanel
+          label="relacion"
+          icon={faFolderPlus}
+          isExpanded={false}
+        />
+        <ExpansionPanel
+          label="Soluciones"
+          icon={faFolderPlus}
+          isExpanded={false}
+        >
+          <ExpansionPanel
+            label="rooooo"
+            isExpanded={false}
+          />
+        </ExpansionPanel>
 
+
+        <ExpansionPanel
+          label="Soluciones"
+          icon={faFolderPlus}
+          isExpanded={false}
+        >
+          <div>
+            <p>Plantillas</p>
+            <p>Componentes</p>
+          </div>
+        </ExpansionPanel>
+      </ExpansionPanel>
+    </div>
+  );
+}
+
+export default App;
