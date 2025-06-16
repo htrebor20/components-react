@@ -6,13 +6,13 @@ import StatusDot from "../../../../components/statusDot"
 import Table from "../../../../components/table"
 import { infoTableCreateModules } from "./constants"
 import './rigntSection.sass'
-import { useQueryCreateModules } from "../../../../services/home"
+import { useGetCreatedModules } from "../../../../services/home"
 import { Connect } from "vite"
 import { reduceArray } from "./utilities"
 
 function RightSection() {
 
-    const createModules = useQueryCreateModules()
+    const createModules = useGetCreatedModules()
     reduceArray(createModules.data)
 
     return (

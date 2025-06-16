@@ -37,7 +37,7 @@ function Title() {
                     buttonStyle="ghost"
                     icon={{ start: faRotateRight }}
                 />
-                <span>{count}</span>
+                <span data-testid="count-wraper">{count}</span>
             </div>
         </div>
 

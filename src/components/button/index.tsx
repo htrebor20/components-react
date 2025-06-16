@@ -8,7 +8,7 @@ function Button({ buttonStyle = "primary", isDisabled, label, isLoading, size = 
     const sizeClass = `size--${size}`
     const isDisableClass = isDisabled ? "isDisabled" : ""
     const loadingClass = isLoading ? "isLoading" : ""
-    
+
     return (
         <button data-testid="button-wraper" onClick={onClick} disabled={isDisabled} className={`${btnClass} ${loadingClass} ${isDisableClass} ${sizeClass}`}>
             {isLoading && <FontAwesomeIcon icon={faSpinner} spin />}

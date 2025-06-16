@@ -42,7 +42,7 @@ describe("Chip component", () => {
 
 
     it("should render button inside Chip", async () => {
-        const handleClick = vi.fn(); // vitest mock function
+        const handleClick = vi.fn(); 
         render(<Chip button={{ onClick: handleClick }} />);
         const button = screen.getByTestId("button-wraper");
         expect(button).toBeInTheDocument();
