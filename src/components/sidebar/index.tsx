@@ -8,7 +8,7 @@ function SideBar({ listItem }: SidebarProps) {
 
     return (
         <div className='side-bar'>
-            <div className='side-bar-header'>
+            <div className='side-bar-header'>   
                 <div className='stile-icon'>
                     <FontAwesomeIcon icon={faClover} />
                     <label> Robert</label>
@@ -24,13 +24,27 @@ function SideBar({ listItem }: SidebarProps) {
                         label={item.label}
                         icon={item.icon}
                         isExpanded={item.isExpanded}
-                        children={item.children}
                         functionExpansionPanel={item.functionExpansionPanel}
+                       children={
+              item.childrenList && item.childrenList.length > 0 ? (
+                <>
+                  {item.childrenList.map((child, childIndex) => (
+                    <ExpansionPanel
+                      key={childIndex}
+                      label={child.label}
+                      isExpanded={child.isExpanded}
+                      icon={child.icon}
+                      functionExpansionPanel={child.functionExpansionPanel}
                     />
-                ))}
-            </div>
-        </div>
-    )
+                  ))}
+                </>
+              ) : undefined
+            }
+          />
+        ))}
+      </div>
+    </div>
+  )
 }
 
-export default SideBar
+export default SideBar;

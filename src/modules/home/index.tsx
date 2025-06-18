@@ -3,7 +3,7 @@ import Title from "./component/title";
 import LeftSection from "./component/leftSection";
 import RightSection from "./component/rigntSection";
 import './home.sass'
-function Home() {
+function HomeComponen() {
     return (
         <div className="home-componet">
             <Title />
@@ -14,6 +14,6 @@ function Home() {
         </div>
     )
 }
-export default Home
+export default HomeComponen
 
 

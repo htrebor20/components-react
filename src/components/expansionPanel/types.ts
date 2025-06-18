@@ -9,4 +9,5 @@ export type ExpansionPanelProps = {
     isExpanded: boolean;
     children?: ReactNode;
     functionExpansionPanel?: FunctionExpansionPanel
+    childrenList?: ExpansionPanelProps[]
 }

@@ -1,10 +1,8 @@
-import Home from "../../modules/home"
-import LeftSection from "../../modules/home/component/leftSection"
+import HomeComponen from "../../modules/home"
 
-function Home1 () {
+function Home () {
 return(
-    <Home/>
+    <HomeComponen/>
 )
-
 }
-export default Home1
+export default Home
