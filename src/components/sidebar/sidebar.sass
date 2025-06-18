@@ -1,0 +1,16 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+.side-bar
+    background-color: map-get(colors.$greyscale, 25)
+.side-bar-header
+    display: flex
+    justify-content: space-between
+    gap: spacing.$spacing-m
+    color: map-get(colors.$greyscale, 700)
+.disple-Toggle
+    display: flex
+    justify-content: end    
+.stile-icon
+    color: map-get(colors.$royal-blue, 700) 
+    label
+        color: map-get(colors.$greyscale, 700) 

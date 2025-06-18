@@ -4,7 +4,7 @@ import './expansionPanel.sass'
 import { ExpansionPanelProps } from './types'
 import { useState } from 'react'
 
-function ExpansionPanel({ icon, label, isExpanded, children }: ExpansionPanelProps) {
+function ExpansionPanel({ icon, label, isExpanded, children, functionExpansionPanel }: ExpansionPanelProps) {
     const [open, setOpen] = useState(isExpanded);
 
     const toggleOpen = () => {
@@ -13,14 +13,14 @@ function ExpansionPanel({ icon, label, isExpanded, children }: ExpansionPanelPro
         }
     };
     return (
-        <div className='expansionPanel' >
+        <div data-testid="expansionPanel-wraper" className='expansionPanel' >
             <div className='expansionPanel-header' onClick={toggleOpen}>
                 <div className='expansionPanel-header-left'>
                     {icon && <FontAwesomeIcon icon={icon} />}
                     <span>{label}</span>
                 </div>
                 {children && (
-                    <FontAwesomeIcon
+                    <FontAwesomeIcon data-testid="expansionPanel-icon"
                         icon={faAngleRight}
                         className={open ? 'rotated' : ''}
                     />
