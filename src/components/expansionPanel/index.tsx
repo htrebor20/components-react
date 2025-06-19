@@ -14,7 +14,10 @@ function ExpansionPanel({ icon, label, isExpanded, children, functionExpansionPa
     };
     return (
         <div data-testid="expansionPanel-wraper" className='expansionPanel' >
-            <div className='expansionPanel-header' onClick={toggleOpen}>
+            <div className='expansionPanel-header' onClick={() => {
+                toggleOpen()
+                functionExpansionPanel?.()
+            }}>
                 <div className='expansionPanel-header-left'>
                     {icon && <FontAwesomeIcon icon={icon} />}
                     <span>{label}</span>

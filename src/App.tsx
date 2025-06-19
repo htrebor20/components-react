@@ -10,7 +10,9 @@ import Home1 from './pages/home'
 import { ExpansionPanelProps } from './components/expansionPanel/types'
 import ExpansionPanel from './components/expansionPanel'
 import SideBar from './components/sidebar'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Home from './pages/home'
+import Layout from './layaout'
 
 export const sidebarIten: ExpansionPanelProps[] = [
   {
@@ -23,15 +25,14 @@ export const sidebarIten: ExpansionPanelProps[] = [
 
 function App() {
   return (
-
- <>
-     <BrowserRouter>
-       <Routes>
-         <Route path="/" element={<SideBar listItem={sidebarIten} />} />
-       </Routes>
-     </BrowserRouter>
-     </>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="home" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

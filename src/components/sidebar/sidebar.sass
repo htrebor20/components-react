@@ -1,13 +1,16 @@
 @use "../../assets/styles/tokens/_colors.sass" as colors
 @use "../../assets/styles/tokens/_spacing.sass" as spacing
 .side-bar
-    background-color: map-get(colors.$greyscale, 25)
+    background-color: map-get(colors.$greyscale, 50)
+    width: 15%
+    height: 100%
 .side-bar-header
     display: flex
     justify-content: space-between
     gap: spacing.$spacing-m
     padding: spacing.$spacing-xs
     color: map-get(colors.$greyscale, 700)
+    font-size: spacing.$spacing-l /2
 .disple-Toggle
     display: flex
     justify-content: end    
