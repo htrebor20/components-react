@@ -4,7 +4,7 @@ type ButtonStyles = "primary" | "secondary" | "ghost" | "danger" | "special"
 
 type Size = "xs" | "m" | "s"
 
-export type ButtomProps = {
+export type ButtonProps = {
     buttonStyle?: ButtonStyles;
     onClick: () => void
     label?: string;

@@ -1,11 +1,11 @@
 import Table from "./component/table";
-import TitleModel from "./component/title";
+import Title from "./component/title";
 
 function Models() {
     return (
         <div>
-            <TitleModel />
-            <Table></Table>
+            <Title/>
+            <Table/>
         </div>
     )
 }

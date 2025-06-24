@@ -1,9 +1,9 @@
-import type { ButtomProps } from './types';
+import type { ButtonProps } from './types';
 import './button.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-function Button({ buttonStyle = "primary", isDisabled, label, isLoading, size = "s", icon, onClick }: ButtomProps) {
+function Button({ buttonStyle = "primary", isDisabled, label, isLoading, size = "s", icon, onClick }: ButtonProps) {
     const btnClass = `button--${buttonStyle}`
     const sizeClass = `size--${size}`
     const isDisableClass = isDisabled ? "isDisabled" : ""

@@ -3,13 +3,14 @@ import { faFilterCircleXmark, faCircleQuestion } from '@fortawesome/free-solid-s
 import './title.sass'
 import Chip from '../../../../components/chip'
 import Button from '../../../../components/button'
-import { icon } from '@fortawesome/fontawesome-svg-core'
 import Input from '../../../../components/input'
 import { useState } from 'react'
 
-function TitleModel() {
+function Title() {
 
-    const [activeChip, setActiveChip] = useState<string>('Todos')
+    const [activeChip, setActiveChip] = useState<string>('female'); 
+
+    const chips = ['female', 'male', 'genderless', 'unknown'];
 
     return (
 
@@ -18,40 +19,22 @@ function TitleModel() {
                 <span> Modelos contables</span>
                 <FontAwesomeIcon icon={faCircleQuestion} />
             </div>
+
             <div className='header-content'>
                 <div className='chip-wrapper'>
-                    <Chip
-                        label='Todos'
-                        chipStyle='secondary'
-                        size='s'
-                        isActive={activeChip === 'Todos'}
-                        button={{ onClick: () => setActiveChip('Todos') }}
-                    />
-                    <Chip
-                        label='Produccion'
-                        chipStyle='secondary'
-                        size='s'
-                        isActive={activeChip === 'Produccion'}
-                        button={{ onClick: () => setActiveChip('Produccion') }}
-                    />
-                    <Chip
-                        label='Prueba'
-                        chipStyle='secondary'
-                        size='s'
-                        isActive={activeChip === 'Prueba'}
-                        button={{ onClick: () => setActiveChip('Prueba') }}
-                    />
-                    <Chip
-                        label='Borrador'
-                        chipStyle='secondary'
-                        size='s'
-                        isActive={activeChip === 'Borrador'}
-                        button={{ onClick: () => setActiveChip('Borrador') }}
-                    />
-
+                    {chips.map((label) => (
+                        <Chip
+                            key={label}
+                            label={label}
+                            chipStyle='secondary'
+                            size='s'
+                            onClick={() => setActiveChip(label)}
+                            isActive={activeChip === label}
+                        />
+                    ))}
                 </div>
-                <div className='header-content-right'>
 
+                <div className='header-content-right'>
                     <Input />
 
                     <Button onClick={() => { }} buttonStyle='secondary' icon={{ start: faFilterCircleXmark }} />
@@ -62,4 +45,4 @@ function TitleModel() {
     )
 }
 
-export default TitleModel
+export default Title

@@ -1,5 +1,5 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { ButtomProps } from "../button/types";
+import { ButtonProps } from "../button/types";
 
 type ChipStyles = "primary" | "secondary" | "orange" | "purple"
 
@@ -14,6 +14,7 @@ export type ChipProps = {
     size?: Size;    
     shapes?:Shapes;
     isLoading?:boolean;
-    button?: ButtomProps;
+    onClose?: Pick<ButtonProps, 'onClick' >
+    onClick?:ButtonProps['onClick'] 
     isActive?: boolean;
 }
