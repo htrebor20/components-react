@@ -1,0 +1,25 @@
+@use "../../../../assets/styles/tokens/_colors.sass" as colors
+@use "../../../../assets/styles/tokens/_spacing" as spacing
+
+.title-wrapper    
+    display: flex
+    padding-top: 10px
+    padding-left:  15px
+    padding-right: 15px
+    flex-direction: column
+    gap: 25px
+.title-header
+    display: flex
+    gap: 5px
+    color: map-get(colors.$royal-blue, 700) 
+    span
+        color: map-get(colors.$greyscale, 700) 
+.chip-wrapper
+    display: flex
+    gap: 5px
+.header-content
+    display: flex
+    justify-content: space-between
+.header-content-right
+    display: flex
+    gap: 10px

@@ -15,4 +15,5 @@ export type ChipProps = {
     shapes?:Shapes;
     isLoading?:boolean;
     button?: ButtomProps;
+    isActive?: boolean;
 }

@@ -3,7 +3,6 @@ import Button from './components/button'
 import Card from './components/card'
 import { faCoffee, faArrowTurnDown, faSpinner, faFolderPlus, faClover, faBolt, faGear } from '@fortawesome/free-solid-svg-icons'
 import Chip from './components/chip'
-import Table from './components/table'
 import { TableProps } from './components/table/types'
 import StatusDot from './components/statusDot'
 import Home1 from './pages/home'
@@ -13,6 +12,9 @@ import SideBar from './components/sidebar'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
 import Layout from './layaout'
+import TitleModel from './modules/models/component/title'
+import Table from './modules/models/component/table'
+import Models from './modules/models'
 
 export const sidebarIten: ExpansionPanelProps[] = [
   {
@@ -29,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home />} />
+          <Route path="models" element={<Models />} />
         </Route>
       </Routes>
     </BrowserRouter>
