@@ -1,9 +1,10 @@
 import Table from "./component/table";
 import Title from "./component/title";
+import './models.sass'
 
 function Models() {
     return (
-        <div>
+        <div className="models">
             <Title/>
             <Table/>
         </div>
