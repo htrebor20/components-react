@@ -5,15 +5,15 @@ import Chip from '../../../../components/chip'
 import Button from '../../../../components/button'
 import Input from '../../../../components/input'
 import { useState } from 'react'
+type GenderType = 'female' | 'male' | 'genderless' | 'unknown';
+import useFilterStore from '../../../../stores/store'
 
 function Title() {
+    const { gender, setGender } = useFilterStore()
 
-    const [activeChip, setActiveChip] = useState<string>('female'); 
-
-    const chips = ['female', 'male', 'genderless', 'unknown'];
+    const chips: GenderType[] = ['female', 'male', 'genderless', 'unknown'];
 
     return (
-
         <div className='title-wrapper' >
             <div className='title-header'>
                 <span> Modelos contables</span>
@@ -28,8 +28,8 @@ function Title() {
                             label={label}
                             chipStyle='secondary'
                             size='s'
-                            onClick={() => setActiveChip(label)}
-                            isActive={activeChip === label}
+                            onClick={() => setGender(label)}
+                            isActive={gender === label}
                         />
                     ))}
                 </div>

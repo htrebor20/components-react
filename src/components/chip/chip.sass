@@ -9,6 +9,11 @@
     align-items: center
     gap: spacing.$spacing-2xs
     font-size: spacing.$spacing-2xs
+    cursor: pointer
+    &:hover
+      background-color: map-get(colors.$royal-blue, 100)
+      border-color: map-get(colors.$royal-blue, 100)
+      color: map-get(colors.$royal-blue, 400)
     &--primary
         @extend .chip
         color: map-get(colors.$greyscale, 200)
