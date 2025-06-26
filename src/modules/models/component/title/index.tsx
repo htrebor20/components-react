@@ -5,13 +5,13 @@ import Chip from '../../../../components/chip'
 import Button from '../../../../components/button'
 import Input from '../../../../components/input'
 import { useState } from 'react'
-type GenderType = 'female' | 'male' | 'genderless' | 'unknown';
+type GenderType = 'todos' | 'female' | 'male' | 'genderless' | 'unknown';
 import useFilterStore from '../../../../stores/store'
 
 function Title() {
     const { gender, setGender } = useFilterStore()
 
-    const chips: GenderType[] = ['female', 'male', 'genderless', 'unknown'];
+    const chips: GenderType[] = ['todos', 'female', 'male', 'genderless', 'unknown'];
 
     return (
         <div className='title-wrapper' >

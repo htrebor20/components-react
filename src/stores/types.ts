@@ -1,1 +1,1 @@
-export type GenderType = 'female' | 'male' | 'genderless' | 'unknown';
+export type GenderType = 'todos' | 'female' | 'male' | 'genderless' | 'unknown';
