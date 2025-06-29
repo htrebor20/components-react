@@ -86,20 +86,10 @@
     border: none
   .isLoading  
     width: spacing.$spacing-m *6 
-.isDisabled
-   background-color: map-get(colors.$greyscale, 100)
-   color: map-get(colors.$greyscale, 800)
-   border-color: map-get(colors.$greyscale, 100)
-   &:hover
-      background-color: map-get(colors.$greyscale, 100)
-      color: map-get(colors.$greyscale, 800)
-      border-color: map-get(colors.$greyscale, 100)
-   &:focus
-      background-color: map-get(colors.$greyscale, 100)
-      color: map-get(colors.$greyscale, 800)
-      border-color: map-get(colors.$greyscale, 100)
-   &:active
-      background-color: map-get(colors.$greyscale, 100)
-      color: map-get(colors.$greyscale, 800)
-      border-color: map-get(colors.$greyscale, 100) 
+
+  &:disabled
+    background-color: map-get(colors.$greyscale, 100)
+    color: map-get(colors.$greyscale, 800)
+    border-color: map-get(colors.$greyscale, 100)
+    cursor: not-allowed
     
