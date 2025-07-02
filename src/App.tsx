@@ -1,7 +1,7 @@
 import './App.sass'
 import Button from './components/button'
 import Card from './components/card'
-import { faCoffee, faArrowTurnDown, faSpinner, faFolderPlus, faClover, faBolt, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faArrowTurnDown, faSpinner, faFolderPlus, faClover, faBolt, faGear,faAngleDown, faXmark, faDatabase } from '@fortawesome/free-solid-svg-icons'
 import Chip from './components/chip'
 import { TableProps } from './components/table/types'
 import StatusDot from './components/statusDot'
@@ -15,6 +15,8 @@ import Layout from './layaout'
 import TitleModel from './modules/models/component/title'
 import Table from './modules/models/component/table'
 import Models from './modules/models'
+import Select from './components/select'
+
 
 export const sidebarIten: ExpansionPanelProps[] = [
   {
