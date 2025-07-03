@@ -1,0 +1,31 @@
+@use "../../assets/styles/tokens/_colors.sass" as colors
+@use "../../assets/styles/tokens/_spacing.sass" as spacing
+
+.input-wrapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-xs
+    max-width: 30%
+    padding: spacing.$spacing-s
+    font-size: spacing.$spacing-xs
+    .placeHolder-wrapper
+        input
+            font-size: spacing.$spacing-xs
+            padding: spacing.$spacing-xs/2 
+            border: 1px solid map-get(colors.$greyscale, 200)
+            border-radius: spacing.$spacing-xs/2
+            transition: border-color 0.2s, background-color 0.2s
+            &::placeholder
+                font-size: spacing.$spacing-xs
+                color: map-get(colors.$greyscale, 400)
+            &:hover
+                background-color: map-get(colors.$greyscale, 25)
+            &:focus
+                border: 1px solid map-get(colors.$information, 500)
+                outline: none
+        &.error input
+            border: 1px solid map-get(colors.$error, 500)
+    .error-message
+        color: map-get(colors.$error, 500)
+        font-size: 10px
+        margin-top: spacing.$spacing-2xs
