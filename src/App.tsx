@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.sass'
 import Button from './components/button'
 import Card from './components/card'
@@ -9,7 +10,6 @@ import Home1 from './pages/home'
 import { ExpansionPanelProps } from './components/expansionPanel/types'
 import ExpansionPanel from './components/expansionPanel'
 import SideBar from './components/sidebar'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
 import Layout from './layaout'
 import TitleModel from './modules/models/component/title'
@@ -30,27 +30,16 @@ export const sidebarIten: ExpansionPanelProps[] = [
 
 function App() {
   return (
-
-
-
-<Input
-    label="label"
-    placeHolder="place holder"
-    helperText="text"
-/>
-
-
-
-
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<Layout />}>
-    //       <Route path="home" element={<Home />} />
-    //       <Route path="models" element={<Models />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="models" element={<Models />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
 export default App
+

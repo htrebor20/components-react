@@ -3,12 +3,17 @@ import { faFilterCircleXmark, faCircleQuestion } from '@fortawesome/free-solid-s
 import './title.sass'
 import Chip from '../../../../components/chip'
 import Button from '../../../../components/button'
-import Input from '../../../../components/input'
 import { useState } from 'react'
 type GenderType = 'todos' | 'female' | 'male' | 'genderless' | 'unknown';
 import useFilterStore from '../../../../stores/store'
+import Modal from '../../../../components/modal'
+import Table from '../../../../components/table'
+import { tableData } from './constants'
+import Select from '../../../../components/select'
 
 function Title() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     const { gender, setGender } = useFilterStore()
 
     const chips: GenderType[] = ['todos', 'female', 'male', 'genderless', 'unknown'];
@@ -35,12 +40,25 @@ function Title() {
                 </div>
 
                 <div className='header-content-right'>
-                    <Input />
-
+                    <Select input='fghjkdddddddddddddd' helperText=' ' label='hjukl'/>
                     <Button onClick={() => { }} buttonStyle='secondary' icon={{ start: faFilterCircleXmark }} />
-                    <Button onClick={() => { }} buttonStyle='primary' label='Crear Modelo' />
+                    <Button onClick={() => setIsModalOpen(true)} buttonStyle='primary' label='Crear Modelo' />
                 </div>
             </div>
+            {isModalOpen &&
+                <Modal
+                    title='Titulo'
+                    closeButton={true}
+                    onClose={()=> setIsModalOpen(false)}
+                    childern={<Table content={tableData.content} dataHead={tableData.dataHead} />}
+                    // childern= "El modal con tamano por defaul deberia verse de esta forma"
+                    primaryButton={{ onClick: () => { }, buttonStyle: 'primary', label: "enviar" }}
+                    secundaryButton={{ onClick: () => { }, buttonStyle: 'secondary', label: "cancelar" }}
+                    size='m'
+                />
+            }
+
+
         </div>
     )
 }
