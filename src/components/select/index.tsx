@@ -1,14 +1,13 @@
-import { options } from './constants'
 import './select.sass'
 import { SelectTypeProps } from './types'
 import SelectReactComp from 'react-select'
 
-function Select({ label, placeholder, isClearable = true, helperText }: SelectTypeProps) {
+function Select({ label, placeholder, isClearable = true, helperText , optionsSelect }: SelectTypeProps) {
     return (
         <div className="select-wrapper">
             {label && <label>{label}</label>}
             <SelectReactComp
-                options={options}
+                options={optionsSelect}
                 isClearable={isClearable}
                 placeholder={placeholder}
                 styles={{
@@ -16,12 +15,10 @@ function Select({ label, placeholder, isClearable = true, helperText }: SelectTy
                         ...base,
                         minHeight: '20px',
                         fontSize: '8px',
-                        padding: '0 2px',
                     }),
                     input: (base) => ({
                         ...base,
                         margin: '0px',
-                        padding: '0px',
                     }),
                     dropdownIndicator: (base) => ({
                         ...base,
@@ -29,7 +26,7 @@ function Select({ label, placeholder, isClearable = true, helperText }: SelectTy
                     }),
                     clearIndicator: (base) => ({
                         ...base,
-                        padding: '0 4px',
+                        padding: '0 5px',
                     }),
                 }}
             />

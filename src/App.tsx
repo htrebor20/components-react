@@ -17,6 +17,7 @@ import Table from './modules/models/component/table'
 import Models from './modules/models'
 import Select from './components/select'
 import Input from './components/input'
+import CreateModel from './modules/createmodels';
 
 
 export const sidebarIten: ExpansionPanelProps[] = [
@@ -30,14 +31,16 @@ export const sidebarIten: ExpansionPanelProps[] = [
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="home" element={<Home />} />
-          <Route path="models" element={<Models />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+
+    <CreateModel/>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Layout />}>
+    //       <Route path="home" element={<Home />} />
+    //       <Route path="models" element={<Models />} />
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
   )
 }
 

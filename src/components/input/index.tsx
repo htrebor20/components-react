@@ -31,7 +31,6 @@ function Input({ label, placeHolder, helperText }: InputProps) {
 
             {helperText && !errors.search && <p>{helperText}</p>}
 
-            <button type="submit">Enviar</button>
         </form>
     );
 }
