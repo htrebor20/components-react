@@ -32,15 +32,15 @@ export const sidebarIten: ExpansionPanelProps[] = [
 function App() {
   return (
 
-    <CreateModel/>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<Layout />}>
-    //       <Route path="home" element={<Home />} />
-    //       <Route path="models" element={<Models />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="models" element={<Models />} />
+          <Route path="models/create" element={<CreateModel />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

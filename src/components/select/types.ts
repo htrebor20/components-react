@@ -6,6 +6,7 @@ export type SelectTypeProps ={
     placeholder?: string
     isClearable?: boolean;
     helperText?:string
-    optionsSelect?: OptionsSelect[]  
+    optionsSelect?: OptionsSelect[] 
+    onChange?: (value: string | null) => void; 
 }
 
