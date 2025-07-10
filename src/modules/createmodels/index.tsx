@@ -1,4 +1,3 @@
-import React from 'react'
 import Title from './title'
 import Form from './form'
 import './createModels.sass'
