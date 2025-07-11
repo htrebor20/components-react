@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import Select from '../../../components/select';
-import Input from '../../../components/input';
+import Select from '../../../../components/select';
+import Input from '../../../../components/input';
 import './form.sass'
 import { optionsGender, optionsState } from './constans';
-import DatePicker from '../../../components/dataPicker';
-import Card from '../../../components/card';
-import Button from '../../../components/button';
+import DatePicker from '../../../../components/dataPicker';
+import Button from '../../../../components/button';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FormData } from '../../../services/models/types';
-import usePostForm from '../../../services/models';
-
-
+import { FormData } from '../../../../services/models/types';
+import usePostForm from '../../../../services/models';
+import Card from '../../../../components/card';
 
 function Form() {
     const { register, handleSubmit, setValue } = useForm<FormData>();

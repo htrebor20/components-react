@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import SideBar from '../components/sidebar'
-import { sidebarIten } from '../App'
 import './layaout.sass'
+import { sidebarIten } from './constans'
 
 function Layout() {
   return (
