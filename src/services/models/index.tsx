@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { TypecharacterRick } from "./types";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { FormData, TypecharacterRick } from "./types";
 import useFilterStore from "../../stores/store";
 
 const BASE_URL = "https://rickandmortyapi.com/api/character";
@@ -28,3 +28,26 @@ const useGetcharacterRick = () => {
 };
 
 export { useGetcharacterRick };
+
+const postFormData = async (data: FormData) => {
+  console.log("data ------- : ", data);
+  const response = await fetch("https://rickandmortyapi.com/api/fake-endpoint", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al enviar datos");
+  }
+  return await response.json();
+};
+
+const usePostForm = () => {
+  return useMutation({
+    mutationFn: (formData: FormData) => postFormData(formData),
+  });
+};
+
+export default usePostForm;
+

@@ -26,6 +26,11 @@ export const sidebarIten: ExpansionPanelProps[] = [
     icon: faBolt,
     isExpanded: true,
     functionExpansionPanel: () => console.log('Automatizar clicked'),
+  },
+    {
+    label: 'models',
+    icon: faBolt,
+    isExpanded: true,
   }
 ]
 

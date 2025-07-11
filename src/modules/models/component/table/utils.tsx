@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/button";
 import StatusDot from "../../../../components/statusDot";
 import { TypecharacterRick } from "../../../../services/models/types"
+import {faEdit } from '@fortawesome/free-solid-svg-icons'
 
-export function InfoAppRick(results?: TypecharacterRick["results"]) {
+export function useInfoAppRick(results?: TypecharacterRick["results"]) {
+
+  const navigate = useNavigate();
   return results?.map(charater => ({
     id: charater.id,
     name: charater.name,
@@ -15,7 +20,9 @@ export function InfoAppRick(results?: TypecharacterRick["results"]) {
           charater.status === 'Dead' ? 'error' :
             'disabled'
       }
-      label={charater.status} />
+      label={charater.status} />,
+    button: <Button onClick={() => navigate('/models/create')} icon={{start:faEdit}} buttonStyle="ghost"/>  
+
   })) ?? [];
 }
 

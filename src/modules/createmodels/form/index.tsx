@@ -8,37 +8,29 @@ import DatePicker from '../../../components/dataPicker';
 import Card from '../../../components/card';
 import Button from '../../../components/button';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FormData } from '../../../services/models/types';
+import usePostForm from '../../../services/models';
 
-type FormData = {
-    firstName: string;
-    lastName: string;
-    gender: string;
-    state: string;
-    startDate: Date | null;
-};
 
 
 function Form() {
     const { register, handleSubmit, setValue } = useForm<FormData>();
     const [startDate, setStartDate] = useState<Date | null>(null);
+    const postMutation = usePostForm();
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const fullData = { ...data, startDate: startDate, };
+        const fullData = { ...data, startDate: startDate, };
 
         console.log('Formulario enviado:', fullData);
 
-        try {
-            const response = await fetch('https://rickandmortyapi.com/api/fake-endpoint', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(fullData),
-            });
-
-            const result = await response.json();
-            console.log('Respuesta de la API:', result);
-        } catch (error) {
-            console.error('Error al enviar a la API:', error);
-        }
+        postMutation.mutate(fullData, {
+        onSuccess: (response) => {
+                console.log(' Datos enviados con éxito:', response);
+            },
+            onError: (error: any) => {
+                console.error(' Error al enviar datos:', error.message);
+            }
+        });
     };
 
     return (
@@ -51,8 +43,10 @@ function Form() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='form-content'>
                             <div className='form-right'>
-                                <Input label='Nombre del  personaje' {...register('firstName')} />
-                                <Input label='Apellido del personaje' {...register('lastName')} />
+                                <label > Nombre</label>
+                                <input  {...register('firstName')} />
+                                <label > Apellidos</label>
+                                <input  {...register('lastName')} />
 
                                 <DatePicker
                                     label="Fecha de inicio contabilización"
@@ -76,16 +70,13 @@ function Form() {
                                     onChange={(value) => {
                                         if (value !== null) setValue('state', value);
                                     }}
-
                                 />
                             </div>
                         </div>
-
                         <div className='footer-wrapper'>
                             <Button onClick={() => { }} label='Salir' buttonStyle='ghost' />
                             <Button onClick={() => { }} label='Siguiente' icon={{ end: faChevronRight }} />
 
-                            {/* ✅ Botón nativo que sí acepta "type" */}
                             <button type="submit">Enviar formulario</button>
                         </div>
                     </form>

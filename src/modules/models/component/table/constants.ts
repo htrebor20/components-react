@@ -6,6 +6,7 @@ export const infoTableCreateModules = {
         { id: "origin", label: "origen" },
         { id: "gender", label: "genero" },
         { id: "created", label: "creado" },
-        { id: "status", label: "estado" }
+        { id: "status", label: "estado" },
+        { id: "button", label: "editar" }
     ]
 }

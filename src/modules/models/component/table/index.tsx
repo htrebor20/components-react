@@ -1,13 +1,13 @@
 
 import TableComp from "../../../../components/table";
 import { useGetcharacterRick } from "../../../../services/models"
-import { InfoAppRick } from "./utils";
 import { infoTableCreateModules } from "./constants";
 import './table.sass'
+import { useInfoAppRick } from "./utils";
 
 function Table() {
     const { data } = useGetcharacterRick()
-    const rickCharacters = InfoAppRick(data?.results)
+    const rickCharacters = useInfoAppRick(data?.results)
     return (
         <div className="table-container">
             <TableComp content={rickCharacters} dataHead={infoTableCreateModules.dataHead} />

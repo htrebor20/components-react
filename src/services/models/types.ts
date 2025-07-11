@@ -1,3 +1,5 @@
+import { ButtonProps } from "../../components/button/types";
+
 export type TypecharacterRick = {
     info: {
         count: number;
@@ -24,5 +26,14 @@ export type TypecharacterRick = {
         episode: string[];
         url: string;
         created: string;
+        button: ButtonProps
     }[];
+};
+
+export type FormData = {
+    firstName: string;
+    lastName: string;
+    gender: string;
+    state: string;
+    startDate: Date | null;
 };
