@@ -26,8 +26,23 @@ const useGetcharacterRick = () => {
     queryFn: () => getCharacter({ gender, page }),
   });
 };
-
 export { useGetcharacterRick };
+
+
+const getCharacterRickById = async (id: number): Promise<TypecharacterRick> => {
+  const url = `${BASE_URL}/${id}`
+  const response = await fetch(url)
+  return await response.json()
+}
+const useGetcharacterById = (id?: number) => {
+  return useQuery({
+    queryKey: ["infoAppRick", id],
+    queryFn: () => getCharacterRickById(id!),
+    enabled: !!id,
+  })
+}
+export { useGetcharacterById };
+
 
 const postFormData = async (data: FormData) => {
   console.log("data ------- : ", data);

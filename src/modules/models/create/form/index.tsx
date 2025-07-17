@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import Select from '../../../../components/select';
-import Input from '../../../../components/input';
 import './form.sass'
 import { optionsGender, optionsState } from './constans';
 import DatePicker from '../../../../components/dataPicker';
 import Button from '../../../../components/button';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FormData } from '../../../../services/models/types';
-import usePostForm from '../../../../services/models';
+import usePostForm, { useGetcharacterById } from '../../../../services/models';
 import Card from '../../../../components/card';
+import { useParams } from 'react-router-dom';
 
 function Form() {
     const { register, handleSubmit, setValue } = useForm<FormData>();
     const [startDate, setStartDate] = useState<Date | null>(null);
     const postMutation = usePostForm();
+    const { id } = useParams<{ id?: string }>();
+    const characterId = id ? parseInt(id) : undefined;
+    console.log("characterId ------- : ", characterId);
+
+    const getByid = useGetcharacterById(characterId);
+
+    console.log("getByid ------- : ", getByid.data);
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
         const fullData = { ...data, startDate: startDate, };
@@ -22,7 +29,7 @@ function Form() {
         console.log('Formulario enviado:', fullData);
 
         postMutation.mutate(fullData, {
-        onSuccess: (response) => {
+            onSuccess: (response) => {
                 console.log(' Datos enviados con éxito:', response);
             },
             onError: (error: any) => {

@@ -21,7 +21,7 @@ export function useInfoAppRick(results?: TypecharacterRick["results"]) {
             'disabled'
       }
       label={charater.status} />,
-    button: <Button onClick={() => navigate('/models/create')} icon={{start:faEdit}} buttonStyle="ghost"/>  
+    button: <Button onClick={() => navigate(`/models/edit/${charater.id}`)} icon={{start:faEdit}} buttonStyle="ghost"/>  
 
   })) ?? [];
 }
