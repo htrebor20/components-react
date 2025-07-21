@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import React, { useEffect, useState } from 'react'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import Select from '../../../../components/select';
 import './form.sass'
 import { optionsGender, optionsState } from './constans';
@@ -10,25 +10,33 @@ import { FormData } from '../../../../services/models/types';
 import usePostForm, { useGetcharacterById } from '../../../../services/models';
 import Card from '../../../../components/card';
 import { useParams } from 'react-router-dom';
+import Input from '../../../../components/input';
 
 function Form() {
-    const { register, handleSubmit, setValue } = useForm<FormData>();
-    const [startDate, setStartDate] = useState<Date | null>(null);
+    const { handleSubmit, setValue, control } = useForm<FormData>();
     const postMutation = usePostForm();
     const { id } = useParams<{ id?: string }>();
     const characterId = id ? parseInt(id) : undefined;
-    console.log("characterId ------- : ", characterId);
-
     const getByid = useGetcharacterById(characterId);
 
-    console.log("getByid ------- : ", getByid.data);
+    useEffect(() => {
+        if (getByid.data) {
+            const { name, gender, status, created } = getByid.data;
+            const [firstName, ...rest] = name.split(" ");
+            const lastName = rest.join(" ");
+
+            setValue('firstName', firstName);
+            setValue('lastName', lastName);
+            setValue('gender', optionsGender.find(optGender => optGender.value.toLowerCase().trim() === gender.toLowerCase().trim()) ?? null);
+            setValue('state', optionsState.find(opt => opt.value.toLowerCase().trim() === status.toLowerCase().trim()) ?? null);
+            setValue('startDate', new Date(created));
+        }
+    }, [getByid.data, setValue]);
 
     const onSubmit: SubmitHandler<FormData> = async (data) => {
-        const fullData = { ...data, startDate: startDate, };
-
-        console.log('Formulario enviado:', fullData);
-
-        postMutation.mutate(fullData, {
+        const dataToSave = { ...data, gender: data.gender?.value ?? "", state: data.state?.value ?? "" }
+        console.log('Formulario enviado:', dataToSave);
+        postMutation.mutate(dataToSave, {
             onSuccess: (response) => {
                 console.log(' Datos enviados con éxito:', response);
             },
@@ -48,41 +56,79 @@ function Form() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='form-content'>
                             <div className='form-right'>
-                                <label > Nombre</label>
-                                <input  {...register('firstName')} />
-                                <label > Apellidos</label>
-                                <input  {...register('lastName')} />
-
-                                <DatePicker
-                                    label="Fecha de inicio contabilización"
-                                    placeholder="Seleccionar"
-                                    selectedDate={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    required
+                                <Controller
+                                    control={control}
+                                    name="firstName"
+                                    defaultValue=""
+                                    render={({ field }) => (
+                                        <Input
+                                            label="Nombre"
+                                            placeHolder="Ingresa tu nombre"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        />
+                                    )}
                                 />
+                                <Controller
+                                    control={control}
+                                    name="lastName"
+                                    defaultValue=""
+                                    render={({ field }) => (
+                                        <Input
+                                            label="Apellido"
+                                            placeHolder="Ingresa su apellido"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        />
+                                    )}
+                                />
+                                <Controller
+                                    control={control}
+                                    name="startDate"
+                                    defaultValue={null}
+                                    render={({ field }) => (
+                                        <DatePicker
+                                            label="Fecha de inicio contabilización"
+                                            placeholder="Seleccionar"
+                                            selectedDate={field.value}
+                                            onChange={field.onChange}
+                                            helperText={field.value === null ? 'Selecciona una fecha' : ''}
+                                        />
+                                    )}
+                                />
+
                             </div>
                             <div className='form-left'>
-                                <Select
-                                    label='Genero'
-                                    optionsSelect={optionsGender}
-                                    onChange={(value) => {
-                                        if (value !== null) setValue('gender', value);
-                                    }}
+                                <Controller
+                                    control={control}
+                                    name="gender"
+                                    render={({ field }) => (
+                                        <Select
+                                            label='Genero'
+                                            optionsSelect={optionsGender}
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        />
+                                    )}
                                 />
-                                <Select
-                                    label='Estado'
-                                    optionsSelect={optionsState}
-                                    onChange={(value) => {
-                                        if (value !== null) setValue('state', value);
-                                    }}
+                                <Controller
+                                    control={control}
+                                    name="state"
+                                    render={({ field }) => (
+                                        <Select
+                                            label='Estado'
+                                            optionsSelect={optionsState}
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        />
+                                    )}
                                 />
+
                             </div>
                         </div>
                         <div className='footer-wrapper'>
-                            <Button onClick={() => { }} label='Salir' buttonStyle='ghost' />
-                            <Button onClick={() => { }} label='Siguiente' icon={{ end: faChevronRight }} />
-
-                            <button type="submit">Enviar formulario</button>
+                            <Button label='Salir' buttonStyle='ghost' />
+                            <Button label='Siguiente' icon={{ end: faChevronRight }} type='submit' />
                         </div>
                     </form>
                 </div>

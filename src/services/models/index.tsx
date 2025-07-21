@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { FormData, TypecharacterRick } from "./types";
+import { Character, CharacterToSave, FormData, TypecharacterRick } from "./types";
 import useFilterStore from "../../stores/store";
 
 const BASE_URL = "https://rickandmortyapi.com/api/character";
@@ -29,7 +29,7 @@ const useGetcharacterRick = () => {
 export { useGetcharacterRick };
 
 
-const getCharacterRickById = async (id: number): Promise<TypecharacterRick> => {
+const getCharacterRickById = async (id: number): Promise<Character> => {
   const url = `${BASE_URL}/${id}`
   const response = await fetch(url)
   return await response.json()
@@ -44,7 +44,7 @@ const useGetcharacterById = (id?: number) => {
 export { useGetcharacterById };
 
 
-const postFormData = async (data: FormData) => {
+const postFormData = async (data: CharacterToSave) => {
   console.log("data ------- : ", data);
   const response = await fetch("https://rickandmortyapi.com/api/fake-endpoint", {
     method: "POST",
@@ -60,7 +60,7 @@ const postFormData = async (data: FormData) => {
 
 const usePostForm = () => {
   return useMutation({
-    mutationFn: (formData: FormData) => postFormData(formData),
+    mutationFn: (formData: CharacterToSave) => postFormData(formData),
   });
 };
 

@@ -1,8 +1,10 @@
 import './select.sass'
-import { SelectTypeProps } from './types'
+import { OptionsSelect, SelectTypeProps } from './types'
 import SelectReactComp from 'react-select'
 
-function Select({ label, placeholder, isClearable = true, helperText , optionsSelect, onChange }: SelectTypeProps) {
+function Select({ label, placeholder, isClearable = true, helperText, optionsSelect, value = null, onChange, }: SelectTypeProps) {
+
+
     return (
         <div className="select-wrapper">
             {label && <label>{label}</label>}
@@ -10,9 +12,10 @@ function Select({ label, placeholder, isClearable = true, helperText , optionsSe
                 options={optionsSelect}
                 isClearable={isClearable}
                 placeholder={placeholder}
+                value={value || null}
                 onChange={(selectedOption) => {
                     if (onChange) {
-                        onChange(selectedOption ? selectedOption.value : null);
+                        onChange(selectedOption ? selectedOption : null);
                     }
                 }}
                 styles={{

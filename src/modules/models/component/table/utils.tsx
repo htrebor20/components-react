@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/button";
 import StatusDot from "../../../../components/statusDot";
 import { TypecharacterRick } from "../../../../services/models/types"
-import {faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { ButtonProps } from "../../../../components/button/types";
 
 export function useInfoAppRick(results?: TypecharacterRick["results"]) {
 
@@ -21,7 +22,7 @@ export function useInfoAppRick(results?: TypecharacterRick["results"]) {
             'disabled'
       }
       label={charater.status} />,
-    button: <Button onClick={() => navigate(`/models/edit/${charater.id}`)} icon={{start:faEdit}} buttonStyle="ghost"/>  
+    button: <Button onClick={() => navigate(`/models/edit/${charater.id}`)} icon={{ start: faEdit }} buttonStyle="ghost" />
 
   })) ?? [];
 }

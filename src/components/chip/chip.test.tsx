@@ -43,7 +43,7 @@ describe("Chip component", () => {
 
     it("should render button inside Chip", async () => {
         const handleClick = vi.fn(); 
-        render(<Chip button={{ onClick: handleClick }} />);
+        render(<Chip onClick={ handleClick } />);
         const button = screen.getByTestId("button-wraper");
         expect(button).toBeInTheDocument();
         await userEvent.dblClick(button)

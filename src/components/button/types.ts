@@ -6,7 +6,7 @@ type Size = "xs" | "m" | "s"
 
 export type ButtonProps = {
     buttonStyle?: ButtonStyles;
-    onClick: () => void
+    onClick?: () => void
     label?: string;
     isDisabled?: boolean;
     isLoading?: boolean;
@@ -15,6 +15,7 @@ export type ButtonProps = {
         end?: IconProp;
     }
     size?: Size;
+    type?: "submit" | "reset" | "button" | undefined;
 }
 
 
