@@ -45,7 +45,7 @@ export { useGetcharacterById };
 
 
 const postFormData = async (data: CharacterToSave) => {
-  console.log("data ------- : ", data);
+  console.log("data ------- CReate_________: ", data);
   const response = await fetch("https://rickandmortyapi.com/api/fake-endpoint", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -64,5 +64,26 @@ const usePostForm = () => {
   });
 };
 
-export default usePostForm;
+export {usePostForm};
 
+const updateFormData = async (data: CharacterToSave) => {
+   console.log("data -------update ++++++ : ", data);
+  const response = await fetch("https://rickandmortyapi.com/api/fake-endpoint-put", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al enviar datos");
+  }
+  return await response.json();
+};
+
+const useUpdateForm = ()=> {
+  return useMutation({
+     mutationFn: (formData: CharacterToSave) => updateFormData(formData),
+  })
+}
+
+export {useUpdateForm}

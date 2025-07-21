@@ -7,7 +7,7 @@ import DatePicker from '../../../../components/dataPicker';
 import Button from '../../../../components/button';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FormData } from '../../../../services/models/types';
-import usePostForm, { useGetcharacterById } from '../../../../services/models';
+import  { useGetcharacterById, usePostForm, useUpdateForm } from '../../../../services/models';
 import Card from '../../../../components/card';
 import { useParams } from 'react-router-dom';
 import Input from '../../../../components/input';
@@ -15,6 +15,7 @@ import Input from '../../../../components/input';
 function Form() {
     const { handleSubmit, setValue, control } = useForm<FormData>();
     const postMutation = usePostForm();
+    const putMutation = useUpdateForm();
     const { id } = useParams<{ id?: string }>();
     const characterId = id ? parseInt(id) : undefined;
     const getByid = useGetcharacterById(characterId);
@@ -36,14 +37,26 @@ function Form() {
     const onSubmit: SubmitHandler<FormData> = async (data) => {
         const dataToSave = { ...data, gender: data.gender?.value ?? "", state: data.state?.value ?? "" }
         console.log('Formulario enviado:', dataToSave);
-        postMutation.mutate(dataToSave, {
-            onSuccess: (response) => {
-                console.log(' Datos enviados con éxito:', response);
-            },
-            onError: (error: any) => {
-                console.error(' Error al enviar datos:', error.message);
-            }
-        });
+
+        if (getByid.data){
+                putMutation.mutate(dataToSave, {
+                onSuccess: (response) => {
+                    console.log(' Datos atualizados con éxito:', response);
+                },
+                onError: (error: any) => {
+                    console.error(' Error al atualizados datos:', error.message);
+                }
+            });
+        }else{
+            postMutation.mutate(dataToSave, {
+                onSuccess: (response) => {
+                    console.log(' Datos enviados con éxito:', response);
+                },
+                onError: (error: any) => {
+                    console.error(' Error al enviar datos:', error.message);
+                }
+            });
+        }
     };
 
     return (
